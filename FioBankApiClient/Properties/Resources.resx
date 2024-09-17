@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccessTokenCanNotBeEmpty" xml:space="preserve">
+    <value>Access token can not be empty.</value>
+  </data>
+  <data name="AccessTokenHasForbiddenChars" xml:space="preserve">
+    <value>Access token contains forbidden characters:</value>
+  </data>
+  <data name="AccessTokenMinimalLength" xml:space="preserve">
+    <value>Minimal length of access token is 64 characters.</value>
+  </data>
+  <data name="DateTimeCannotBeEarlier" xml:space="preserve">
+    <value>Date/Time cannot be earlier than DateTimeOffset.MinValue.</value>
+  </data>
+  <data name="ExceptionDuringFioApiCall" xml:space="preserve">
+    <value>{ExceptionName} throws when calling the API. Request uri: '{Uri}'.</value>
+  </data>
+  <data name="ExceptionDuringJsonDeserialization" xml:space="preserve">
+    <value>{ExceptionName} throws when calling TryDeserializeAsync method.</value>
+  </data>
+  <data name="FioRequestNull" xml:space="preserve">
+    <value>Parameter fioRequest can not be null.</value>
+  </data>
+  <data name="HttpStatusCodeValue" xml:space="preserve">
+    <value>Status code: '{StatusCode}'. Server response: {ServerResponse} Request uri: '{Uri}'. {Resource}</value>
+  </data>
+  <data name="JsonDeserializationResultNull" xml:space="preserve">
+    <value>JSON deserialization result is null.</value>
+  </data>
+  <data name="NullLoggerConsole" xml:space="preserve">
+    <value>Logger is null (Console), using NullLogger.</value>
+  </data>
+  <data name="NullLoggerDebug" xml:space="preserve">
+    <value>Logger is null (Debug),using NullLogger.</value>
+  </data>
+  <data name="NullLoggerTrace" xml:space="preserve">
+    <value>Logger is null (Trace), using NullLogger.</value>
+  </data>
+  <data name="ResponseStreamClosed" xml:space="preserve">
+    <value>Stream can not be closed. Method:TryDeserializeAsync Parameter: streamContent.</value>
+  </data>
+  <data name="ResponseStreamNull" xml:space="preserve">
+    <value>Stream can not be null. Method:TryDeserializeAsync Parameter: streamContent.</value>
+  </data>
+  <data name="StatusCodeConflict" xml:space="preserve">
+    <value>The minimum interval of 30 seconds between downloading data from the bank / uploading data to the bank is not observed of a specific token (regardless of format type). A specific token can only be used once for reading or writing within 30 seconds.</value>
+  </data>
+  <data name="StatusCodeInternalServerErrorWithContent" xml:space="preserve">
+    <value>StatusCode InternalServerError with server response.</value>
+  </data>
+  <data name="StatusCodeInternalServerErrorWithoutContent" xml:space="preserve">
+    <value>The error indicates a non-existent, invalid or inactive token. Check the validity and correctness of the token in the Internet banking.</value>
+  </data>
+  <data name="StatusCodeNotFound" xml:space="preserve">
+    <value>A poorly sent query that the server cannot properly respond to. Check the URL parameters nin query/import.</value>
+  </data>
+  <data name="StatusCodeRequestEntityTooLarge" xml:space="preserve">
+    <value>You are downloading a large set of data. The download limit is set to a maximum of 50,000 moves. Adequately adjust the date range in the sent query, or you need to set a breakpoint for a more recent movement.</value>
+  </data>
+  <data name="StatusCodeUnprocessableEntity" xml:space="preserve">
+    <value>Data older than 90 days is requested without having been strongly authorized to access historical data.</value>
+  </data>
+  <data name="YearMustBePositive" xml:space="preserve">
+    <value>Year must be a positive value.</value>
+  </data>
+  <data name="StatementIDMustBePositive" xml:space="preserve">
+    <value>Statement ID must be a positive value.</value>
+  </data>
+  <data name="MovementIdMustBePositive" xml:space="preserve">
+    <value>MovementId must be a positive value.</value>
+  </data>
+</root>
