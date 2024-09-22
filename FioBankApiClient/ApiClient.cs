@@ -18,6 +18,7 @@ namespace FioBankApiClient
     {
         private readonly HttpClient _httpClient;
         private readonly ILogger<ApiClient> _logger;
+        private DateTime _lastRequestTime;
 
         public ApiClient(HttpClient httpClient, ILogger<ApiClient> logger)
         {
@@ -50,21 +51,20 @@ namespace FioBankApiClient
             if (fioRequest == null)
                 return Result.Failure<T>(Resources.FioRequestNull);
 
-            using var request = new HttpRequestMessage(HttpMethod.Get, fioRequest.Url);
-
             try
             {
-                using (var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false))
+                await Wait30SecondsAsync(cancellationToken);
+
+                using var request = new HttpRequestMessage(HttpMethod.Get, fioRequest.Url);
+
+                using var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false);
+
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        return await fioRequest.ProcessContentAsync(response.Content, cancellationToken).ConfigureAwait(false);
-                    }
-                    else
-                    {
-                        return await ProcessErrorStatusCodeResponseAsync(fioRequest, response, cancellationToken).ConfigureAwait(false);
-                    }
+                    return await fioRequest.ProcessContentAsync(response.Content, cancellationToken).ConfigureAwait(false);
                 }
+
+                return await ProcessErrorStatusCodeResponseAsync(fioRequest, response, cancellationToken).ConfigureAwait(false);
             }
             catch (HttpRequestException exception)
             {
@@ -77,6 +77,34 @@ namespace FioBankApiClient
             catch (OperationCanceledException exception)
             {
                 return LogExceptionResponse<T>(exception, fioRequest.Url);
+            }
+            finally
+            {
+                _lastRequestTime = DateTime.UtcNow;
+            }
+        }
+
+        /// <summary>
+        /// Wait 30-seconds between api calls due Fio Bank limit.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token to cancel operation.</param>
+        /// <returns>A task that represents the asynchronous operation.</returns>
+        private async Task Wait30SecondsAsync(CancellationToken cancellationToken)
+        {
+            var minDelayBetweenRequests = TimeSpan.FromSeconds(30);
+
+            var currentTime = DateTime.UtcNow;
+            if (currentTime - _lastRequestTime < minDelayBetweenRequests)
+            {
+                var remainingDelay = minDelayBetweenRequests - (currentTime - _lastRequestTime);
+
+                Console.WriteLine($"Waiting for {remainingDelay.TotalSeconds:F0} seconds before sending the next request.");
+                while (remainingDelay > TimeSpan.Zero)
+                {
+                    await Task.Delay(1000, cancellationToken);
+                    remainingDelay -= TimeSpan.FromSeconds(1);
+                    Console.WriteLine($"Remaining waiting time: {remainingDelay.TotalSeconds:F0} seconds");
+                }
             }
         }
 
@@ -124,7 +152,7 @@ namespace FioBankApiClient
             {
                 if (response.Content.Headers.ContentLength == 0)
                 {
-                    return LogErrorStatusCodeResponse<T>(response.StatusCode, fioRequest.Url, serverResponse, "");
+                    return LogErrorStatusCodeResponse<T>(response.StatusCode, fioRequest.Url, "Empty", Resources.StatusCodeInternalServerErrorWithoutContent);
                 }
                 else
                 {
