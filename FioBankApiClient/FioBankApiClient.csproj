@@ -8,7 +8,7 @@
     <Title>Fio Bank's REST API C# client</Title>
     <Authors>Roman Dlouhy</Authors>
     <PackageId>FioBankApiClient</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <PackageProjectUrl>https://github.com/Dlouhy/FioBankApiClient</PackageProjectUrl>
     <Description>C# library for accessing Fio Bank's REST API</Description>
     <RepositoryUrl>https://github.com/Dlouhy/FioBankApiClient.git</RepositoryUrl>
