@@ -49,7 +49,7 @@ If you try to call it too quickly, you'll get a 409 Conflict error."
 
     Result<AccountStatement> lastTransactions = await apiClientService.GetTransactionsSinceLastDownloadAsync();
 
-    Result<string> csvLastTransactions = await apiClientService.GetTransactionsSinceLastDownloadAsync(FioDataFormat.Csv);   
+    Result<string> csvLastTransactions = await apiClientService.GetTransactionsSinceLastDownloadAsync(FioDataFormat.Csv);
 
 #### Listing transactions since a certain statement ID and year
 
@@ -65,7 +65,7 @@ If you try to call it too quickly, you'll get a 409 Conflict error."
 
     DateTimeOffset unsuccessfulDateTime = new DateTimeOffset(2024, 5, 1, 8, 6, 32, new TimeSpan(1, 0, 0));
 
-    await apiClientService.SetCursorToLastDateAsunync(unsuccessfulDateTime);
+    await apiClientService.SetCursorToLastDateAsync(unsuccessfulDateTime);
 
 #### Set the cursor to the ID of the last successfully downloaded transaction
 
